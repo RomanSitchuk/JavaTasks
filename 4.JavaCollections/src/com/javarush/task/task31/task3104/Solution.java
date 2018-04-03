@@ -43,10 +43,10 @@ public class Solution extends SimpleFileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        if (file.getFileName().endsWith(".rar") || file.getFileName().endsWith(".zip")){
+        if (file.getFileName().toString().endsWith(".rar") || file.getFileName().toString().endsWith(".zip")){
             archived.add(file.toString());
         }
-        return FileVisitResult.CONTINUE;
+        return super.visitFile(file, attrs);
     }
 
     @Override
